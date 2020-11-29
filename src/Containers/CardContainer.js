@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from './Card'
+import Card from '../Components/Card'
 
-class Homepage extends React.Component {
+class CardContainer extends React.Component {
 
     state = {
         cardsApi: []
@@ -27,4 +27,4 @@ class Homepage extends React.Component {
 
 }
 
-export default Homepage;
+export default CardContainer;
