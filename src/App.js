@@ -10,7 +10,8 @@ class App extends React.Component {
       return (
         <div>
           <Header />,
-          <Route path="/home" render={() => <Homepage /> } />
+          {/* <Route path="/home" render={() => <Homepage /> } /> */}
+          <Homepage />
         </div>
         
     
