@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import Card from '../Components/Card'
 
 class CardContainer extends React.Component {
@@ -27,4 +28,4 @@ class CardContainer extends React.Component {
 
 }
 
-export default CardContainer;
+export default withRouter(CardContainer);
