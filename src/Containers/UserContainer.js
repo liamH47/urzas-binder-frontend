@@ -7,7 +7,21 @@ import UserCard from '../Components/UserCard'
 class UserContainer extends React.Component {
 
     state = {
-        userCardsState: []
+        userCardsState: [],
+        currentUser: this.props.currentUser
+    }
+
+    deleteHandler = (id) => {
+        const currentUserCards = this.state.userCardsState
+        this.setState({ userCardsState: currentUserCards.filter(userCard => userCard.id !== id)})
+        fetch(`http://localhost:3000/api/v1/user_cards/${id}`, {
+            method: 'DELETE',
+        })
+        .then(r => r.json())
+        .then(data => {
+            let newArray = [...this.state.userCardsState]
+            this.setState({ userCardsState: newArray })
+        })
     }
     
     componentDidMount = () => {
@@ -18,7 +32,8 @@ class UserContainer extends React.Component {
     }
     
     renderUserCards = () => {
-       return this.props.userCards.map(userCardObj => <UserCard key={userCardObj.id} userCard={userCardObj} />)
+        let filteredArray = this.state.userCardsState.filter(userCard => userCard.user.id === this.state.currentUser)
+       return filteredArray.map(userCardObj => <UserCard key={userCardObj.id} userCard={userCardObj} deleteHandler={this.deleteHandler} />)
     }
 
     render(){
