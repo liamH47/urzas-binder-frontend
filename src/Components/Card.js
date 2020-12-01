@@ -6,7 +6,7 @@ class Card extends React.Component {
     state = {
         user_id: this.props.currentUser,
         card_id: this.props.id,
-        user_tag: ""
+        user_tag: "plswork"
     }
 
     localAddHandler = () => {
