@@ -42,7 +42,7 @@ class App extends React.Component {
           <Header />
           <Navbar /> 
           <Switch>
-          <Route path="/users" render={() => <UserContainer />} />
+          <Route path="/users" render={() => <UserContainer currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
           <Route path="/cards" render={() => <CardContainer currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
           {/* <Route path="/home" render={() => <Signup />} /> */}
           </Switch>
