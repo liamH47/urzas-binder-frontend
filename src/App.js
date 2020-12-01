@@ -6,6 +6,7 @@ import CardContainer from './Containers/CardContainer.js'
 import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 import Signup from './Components/Signup'
+import UserContainer from './Containers/UserContainer';
 
 class App extends React.Component {
     render() { 
@@ -14,6 +15,7 @@ class App extends React.Component {
           <Header />
           <Navbar /> 
           <Switch>
+          <Route path="/users" render={() => <UserContainer />} />
           <Route path="/cards" render={() => <CardContainer />} />
           <Route path="/home" render={() => <Signup />} />
           </Switch>

@@ -10,6 +10,9 @@ function Navbar() {
             <NavLink to="/home">
                 <li>Home/SignIn</li>
             </NavLink>
+            <NavLink to="/users">
+                <li>all users</li>
+            </NavLink>
         </ul>
     )
 }
