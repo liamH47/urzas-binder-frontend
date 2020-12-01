@@ -7,7 +7,8 @@ class CardContainer extends React.Component {
 
     state = {
         cardsApi: [],
-        searchValue: ""
+        searchValue: "",
+        currentUser: this.props.currentUser
     }
 
     searchHandler = (event) => {
@@ -22,7 +23,7 @@ class CardContainer extends React.Component {
 
     renderCards = () => {
         let filteredArray = this.state.cardsApi.filter(card => card.name.toLowerCase().includes(this.state.searchValue.toLocaleLowerCase()))
-        return filteredArray.map(cardObj => <Card key={cardObj.id} card={cardObj} />)
+        return filteredArray.map(cardObj => <Card currentUser={this.state.currentUser} id={cardObj.id} key={cardObj.id} card={cardObj} addToCollection={this.props.addToCollection} />)
       }
 
     render() {
@@ -37,3 +38,7 @@ class CardContainer extends React.Component {
 }
 
 export default withRouter(CardContainer);
+
+//get user props from app in here
+//maybe take beyonce css to create a new column for added cards
+//
