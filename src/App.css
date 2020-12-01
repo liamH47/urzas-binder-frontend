@@ -1,9 +1,13 @@
 body {
   text-align: center;
-  color: #003A70;
-  font-family: "Arial Black", Gadget, sans-serif;   
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px;
+}
+
+.card {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
 }

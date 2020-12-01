@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import User from '../Components/User'
+import { Route } from 'react-router-dom'
 
 class UserContainer extends React.Component {
 
@@ -22,6 +23,7 @@ class UserContainer extends React.Component {
     render(){
         return(
             <div>
+                <Route path="/users/26" render={() => console.log("plswork")} />
                 {this.renderUserList()}
             </div>
         )
