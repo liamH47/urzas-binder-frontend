@@ -35,4 +35,3 @@ class Card extends React.Component {
 }
 
 export default Card;
-//add button with callback all the way back up to app that will make a post to /usercards
