@@ -3,17 +3,16 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
     return (
-        <ul>
+        <div>
+
             <NavLink to="/cards">
-                <li>All Cards</li>
+                <button>All Cards</button>
             </NavLink>
-            <NavLink to="/home">
-                <li>Home/SignIn</li>
-            </NavLink>
+
             <NavLink to="/users">
-                <li>all users</li>
+                <button>My Binder</button>
             </NavLink>
-        </ul>
+        </div>
     )
 }
 
