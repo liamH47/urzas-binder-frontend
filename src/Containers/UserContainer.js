@@ -23,6 +23,23 @@ class UserContainer extends React.Component {
             this.setState({ userCardsState: newArray })
         })
     }
+
+    editTagHandler = (id) => {
+        fetch(`http://localhost:3000/api/v1/user_cards/${id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": "application/json"
+            },
+            body: JSON.stringify
+        }).then(r => r.json())
+          .then(newTag => {
+              let copiedArray = [...this.state.userCardsState]
+              let index = copiedArray.findIndex(tag => tag.id === newTag.id)
+              copiedArray[index] = newTag
+              this.setState({ userCardsState: copiedArray})
+          })
+    }
     
     componentDidMount = () => {
         fetch("http://localhost:3000/api/v1/user_cards")
@@ -33,7 +50,7 @@ class UserContainer extends React.Component {
     
     renderUserCards = () => {
         let filteredArray = this.state.userCardsState.filter(userCard => userCard.user.id === this.state.currentUser)
-       return filteredArray.map(userCardObj => <UserCard key={userCardObj.id} userCard={userCardObj} deleteHandler={this.deleteHandler} />)
+       return filteredArray.map(userCardObj => <UserCard editTagHandler={this.editTagHandler} key={userCardObj.id} userCard={userCardObj} deleteHandler={this.deleteHandler} />)
     }
 
     render(){
@@ -47,5 +64,7 @@ class UserContainer extends React.Component {
 }
 
 export default withRouter(UserContainer)
-/* <Route path="/users/26" render={() => console.log("plswork")} />
-{this.renderUserList()} */
+
+//what's wrong with my delete
+//how can I make the usercards group by tag?
+//is the way to add multiple tags to turn the tags attribute into an array?
