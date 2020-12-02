@@ -3,7 +3,7 @@ import React from 'react'
 class UserCard extends React.Component {
 
     state = {
-        user_tag: this.props.userCard.user_tag
+        user_tag: ""
     }
 
     changehandler = (event) => {
@@ -15,7 +15,10 @@ class UserCard extends React.Component {
     }
 
     localEditHandler = () => {
-        this.props.editTagHandler(this.props.userCard.id)
+
+        let user_tag = this.props.userCard.user_tag
+        let id = this.props.userCard.id
+        this.props.editTagHandler(user_tag, id)
     }
 
     render() {
@@ -23,7 +26,7 @@ class UserCard extends React.Component {
             <div className="card">
                 <img src={this.props.userCard.card.image_url} alt={this.props.userCard.name} />
                 <form onSubmit={this.localEditHandler} className="tag-form" >
-                    <input type="text" name="tag" placeholder="Edit your tag" value={this.state.user_tag} onChange={this.changehandler} ></input>
+                    <input type="text" name="tag" placeholder="Edit your tag" ></input>
                     <br/>
                     <button>Edit Tag</button>
                     <br/>
@@ -37,3 +40,5 @@ class UserCard extends React.Component {
 }
 
 export default UserCard
+
+// value={this.state.user_tag} onChange={this.changehandler} 

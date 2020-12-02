@@ -54,8 +54,3 @@ class App extends React.Component {
 }
 
 export default App;
-//set a state with current user
-//component did mount fetches user/32
-//will pass user props down to containers
-//make add to collection create a post request to usercards with state as user id
-//card id as card id, and blank string for tags for time being
