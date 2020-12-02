@@ -26,6 +26,7 @@ class UserContainer extends React.Component {
     }
 
     editTagHandler = (user_tag, id) => {
+        console.log(user_tag, id)
         fetch(`http://localhost:3000/api/v1/user_cards/${id}`, {
             method: 'PATCH',
             headers: {
@@ -67,9 +68,8 @@ class UserContainer extends React.Component {
 }
 
 export default withRouter(UserContainer)
-
-//what's wrong with my delete
 //how can I make the usercards group by tag?
+//new component that filtered based off of words in tag
 //is the way to add multiple tags to turn the tags attribute into an array?
 
 
