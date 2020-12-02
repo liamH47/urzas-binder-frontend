@@ -14,9 +14,9 @@ class UserCard extends React.Component {
         this.props.deleteHandler(this.props.userCard.id)
     }
 
-    localEditHandler = () => {
-
-        let user_tag = this.props.userCard.user_tag
+    localEditHandler = (e) => {
+        e.preventDefault()
+        let user_tag = this.state.user_tag
         let id = this.props.userCard.id
         this.props.editTagHandler(user_tag, id)
     }
@@ -26,7 +26,7 @@ class UserCard extends React.Component {
             <div className="card">
                 <img src={this.props.userCard.card.image_url} alt={this.props.userCard.name} />
                 <form onSubmit={this.localEditHandler} className="tag-form" >
-                    <input type="text" name="tag" placeholder="Edit your tag" ></input>
+                    <input type="text" name="tag" placeholder="Edit your tag" value={this.state.user_tag} onChange={this.changehandler} ></input>
                     <br/>
                     <button>Edit Tag</button>
                     <br/>
