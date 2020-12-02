@@ -6,7 +6,11 @@ class Card extends React.Component {
     state = {
         user_id: this.props.currentUser,
         card_id: this.props.id,
-        user_tag: "plswork"
+        user_tag: ""
+    }
+
+    changehandler = (event) => {
+        this.setState({ user_tag: event.target.value})
     }
 
     localAddHandler = () => {
@@ -18,9 +22,13 @@ class Card extends React.Component {
         const { card } = this.props;
         return (
         <div className="card">
-            <p>{card.name}</p>
             <img src={card.image_url} alt={card.name} />
-            <button onClick={this.localAddHandler}>Add To Collection</button>
+            <form onSubmit={this.localAddHandler} className="tag-form">
+                <input type="text" name="tag" placeholder="Tag this card!" value={this.state.user_tag} onChange={this.changehandler} ></input>
+                <br/>
+                <button>Add To Collection</button>
+                <br/>
+            </form>
         </div>
         )
     }
