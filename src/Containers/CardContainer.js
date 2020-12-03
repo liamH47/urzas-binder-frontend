@@ -28,8 +28,9 @@ class CardContainer extends React.Component {
 
     render() {
         return (
-        <div className="list">
-            <CardSearchForm changeHandler={this.searchHandler} searchValue={this.state.searchValue}/>
+        <div className="cards-area">
+           <span> <CardSearchForm changeHandler={this.searchHandler} searchValue={this.state.searchValue}/> </span>
+            <br/>
             {this.renderCards()}
         </div>
         )
