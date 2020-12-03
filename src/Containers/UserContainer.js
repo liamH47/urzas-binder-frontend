@@ -3,12 +3,15 @@ import { withRouter } from 'react-router-dom'
 // import User from '../Components/User'
 // import { Route } from 'react-router-dom'
 import UserCard from '../Components/UserCard'
+import SearchByTag from '../Components/SearchByTag'
+
 
 class UserContainer extends React.Component {
 
     state = {
         userCardsState: [],
-        currentUser: this.props.currentUser
+        currentUser: this.props.currentUser,
+        searchValue: ""
     }
 
     deleteHandler = (id) => {
@@ -51,15 +54,21 @@ class UserContainer extends React.Component {
         .then(data => this.setState({ userCardsState: data}))
         // console.log("plswork")
     }
+
+    searchHandler = (event) => {
+        this.setState({searchValue: event.target.value})
+    }
     
     renderUserCards = () => {
-        let filteredArray = this.state.userCardsState.filter(userCard => userCard.user.id === this.state.currentUser)
+        let filteredArray = this.state.userCardsState.filter(userCard => userCard.user.id === this.state.currentUser && userCard.user_tag.toLowerCase().includes(this.state.searchValue.toLowerCase())) 
        return filteredArray.map(userCardObj => <UserCard currentUser={this.props.currentUser} editTagHandler={this.editTagHandler} key={userCardObj.id} userCard={userCardObj} deleteHandler={this.deleteHandler} />)
     }
 
     render(){
         return(
             <div className="cards-area">
+                <SearchByTag changeHandler={this.searchHandler}  searchValue={this.state.searchValue} />
+                <br/>
                 {this.renderUserCards()}
             </div>
         )
