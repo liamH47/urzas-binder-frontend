@@ -22,14 +22,14 @@ class CardContainer extends React.Component {
     }
 
     renderCards = () => {
-        let filteredArray = this.state.cardsApi.filter(card => card.name.toLowerCase().includes(this.state.searchValue.toLocaleLowerCase()))
+        let filteredArray = this.state.cardsApi.filter(card => card.name.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(cardObj => <Card currentUser={this.state.currentUser} id={cardObj.id} key={cardObj.id} card={cardObj} addToCollection={this.props.addToCollection} />)
       }
 
     render() {
         return (
         <div className="cards-area">
-           <span> <CardSearchForm changeHandler={this.searchHandler} searchValue={this.state.searchValue}/> </span>
+           <CardSearchForm changeHandler={this.searchHandler} searchValue={this.state.searchValue}/>
             <br/>
             {this.renderCards()}
         </div>

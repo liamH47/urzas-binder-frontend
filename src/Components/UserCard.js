@@ -24,7 +24,7 @@ class UserCard extends React.Component {
     render() {
         return(
             <div className="card">
-                <img src={this.props.userCard.card.image_url} alt={this.props.userCard.name} />
+                <img className="card-img" src={this.props.userCard.card.image_url} alt={this.props.userCard.name} />
                 <p className="user-card-p">{this.props.userCard.user_tag} </p>
                 <form onSubmit={this.localEditHandler} className="tag-form" >
                     <input type="text" name="tag" placeholder="Edit your tag" value={this.state.user_tag} onChange={this.changehandler} ></input>
