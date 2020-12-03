@@ -1,13 +1,55 @@
 body {
+  text-align: center; 
+  display: grid;
+
+}
+
+.wrapper {
+  background-color: cornsilk;
+  display: grid;
+  grid-template-areas:
+  "nav header"
+  "main main"
+; 
+}
+
+.main-header {
+  grid-area: header;
+  border: 2px solid green
+}
+
+.nav-bar {
+  grid-area: nav;
+  border: 2px solid pink
+}
+
+.cards-area {
+  grid-area: main;
+  border: 2px solid purple;
   text-align: center;
+  color: #003A70;
+  font-family: "Arial Black", Gadget, sans-serif;   
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
 }
 
 .card {
   text-align: center;
   border: grey solid 1px;
-  padding: 1rem;
-  width: 15rem;
-  height: 25rem;
+
   display: inline-grid;
   margin: 1rem 2rem;
+  background-color: rgb(255,255,255, 0.3);
+  border-radius: 10px;
+  margin: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  object-fit: contain;
 }
+
+.search-bar {
+  justify-content: center;
+}
+

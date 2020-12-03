@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Navbar() {
     return (
-        <div>
+        <div className="nav-bar">
 
             <NavLink to="/cards">
                 <button>All Cards</button>

@@ -59,7 +59,7 @@ class UserContainer extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="cards-area">
                 {this.renderUserCards()}
             </div>
         )
