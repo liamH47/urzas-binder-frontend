@@ -67,7 +67,7 @@ class UserContainer extends React.Component {
     render(){
         return(
             <div className="cards-area">
-                <SearchByTag changeHandler={this.searchHandler}  searchValue={this.state.searchValue} />
+                <SearchByTag id="tag-search-bar" changeHandler={this.searchHandler}  searchValue={this.state.searchValue} />
                 <br/>
                 {this.renderUserCards()}
             </div>
@@ -82,10 +82,8 @@ export default withRouter(UserContainer)
 //is the way to add multiple tags to turn the tags attribute into an array?
 
 
-//add hover or some other way of enlarging/zooming in on a card
 //perhaps to the right of each tag a small button to remove that tag? this would only be useful if we can get multiple tags on a card
 //have a column on the left side of both /cards and /user/id that has a searchform for cards
 //expand current search functionality, potentially with dropdown menu filters for card attributes such as color, type, set, maybe tags?
 //different sorting orders such as by mana cost 
-//maybe clean up remove from collection button so that it is a simple x that appears when you hover over a card
 

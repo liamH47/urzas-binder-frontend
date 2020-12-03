@@ -13,7 +13,8 @@ class Card extends React.Component {
         this.setState({ user_tag: event.target.value})
     }
 
-    localAddHandler = () => {
+    localAddHandler = (event) => {
+        event.preventDefault()
         this.props.addToCollection(this.state)
         console.log(this.props)
     }

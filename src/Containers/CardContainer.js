@@ -6,7 +6,6 @@ import CardSearchForm from '../Components/CardSearchForm'
 class CardContainer extends React.Component {
 
     state = {
-        cardsApi: [],
         searchValue: "",
         currentUser: this.props.currentUser
     }
@@ -15,14 +14,9 @@ class CardContainer extends React.Component {
         this.setState({searchValue: event.target.value })
       }
     
-    componentDidMount = () => {
-        fetch("http://localhost:3000/api/v1/cards")
-        .then(resp => resp.json())
-        .then(data => this.setState({ cardsApi: data }))
-    }
-
     renderCards = () => {
-        let filteredArray = this.state.cardsApi.filter(card => card.name.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+        console.log(this.props.cardsApi)
+        let filteredArray = this.props.cardsApi.filter(card => card.name.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(cardObj => <Card currentUser={this.state.currentUser} id={cardObj.id} key={cardObj.id} card={cardObj} addToCollection={this.props.addToCollection} />)
       }
 
