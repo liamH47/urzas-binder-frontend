@@ -27,10 +27,10 @@ class UserCard extends React.Component {
                 <img className="card-img" src={this.props.userCard.card.image_url} alt={this.props.userCard.name} />
                 <p className="user-card-p">{this.props.userCard.user_tag} </p>
                 <form onSubmit={this.localEditHandler} className="tag-form" >
-                    <input type="text" name="tag" placeholder="Edit your tag" value={this.state.user_tag} onChange={this.changehandler} ></input>
+                    <input className="edit-place" type="text" name="tag" placeholder="Edit your tag" value={this.state.user_tag} onChange={this.changehandler} ></input>
                     <button>✏️ </button>
+                    <button className="del-btn" onClick={this.localDeleteHandler}>❌</button>
                 </form>
-                <button className="del-btn" onClick={this.localDeleteHandler}>❌</button>
             </div>
         )
     }

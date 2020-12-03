@@ -12,8 +12,17 @@ class App extends React.Component {
 
     state = {
       currentUserId: 32,
-      userCards: []
+      userCards: [],
+      cardsApi: []
     }
+
+    componentDidMount = () => {
+      fetch("http://localhost:3000/api/v1/cards")
+      .then(resp => resp.json())
+      .then(data => this.setState({ cardsApi: data }))
+    }
+
+    
 
     addToCollection = (userCardObj) => {
       // console.log("clicked")
@@ -29,11 +38,15 @@ class App extends React.Component {
       .then(newUserCard => this.setState({ userCards: [...this.state.userCards, newUserCard] }))
     }
 
-    componentDidMount() {
-      fetch("http://localhost:3000/api/v1/users/32")
-      .then(r => r.json())
-      .then(userObj => this.setState({ currentUserId: userObj.id}))
-    }
+    // componentDidMount() {
+    //   Promise.all([fetch("http://localhost:3000/api/v1/users/32"), fetch("http://localhost:3000/api/v1/cards")])
+    //   .then(([r1, r2]) => {
+    //     return Promise.all([r1.json(), r2.json()])
+    //   })
+    //   .then(([r1, r2]) => {
+    //     this.setState({ cardsApi: r2})
+    //   })
+    // }
 
 
     render() { 
@@ -43,7 +56,7 @@ class App extends React.Component {
           <Navbar /> 
           <Switch>
           <Route path="/users" render={() => <UserContainer currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
-          <Route path="/cards" render={() => <CardContainer currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
+          <Route path="/cards" render={() => <CardContainer cardsApi={this.state.cardsApi} currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
           {/* <Route path="/home" render={() => <Signup />} /> */}
           </Switch>
         </div>
@@ -54,3 +67,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//save all cards to array here for performance

@@ -4,7 +4,7 @@ const CardSearchForm = ({ searchValue, changeHandler }) => {
     return(
         <div className="search-form">
             <form className="search-bar">
-                <input className="input-text" type="text" value={searchValue} onChange={changeHandler} placeholder="search by name" />
+                <input id="name-search-bar" type="text" value={searchValue} onChange={changeHandler} placeholder="search by name" />
             </form>
         </div>
     ) 
