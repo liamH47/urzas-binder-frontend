@@ -25,8 +25,7 @@ class Card extends React.Component {
             <img src={card.image_url} alt={card.name} />
             <form onSubmit={this.localAddHandler} className="tag-form">
                 <input type="text" name="tag" placeholder="Tag this card!" value={this.state.user_tag} onChange={this.changehandler} ></input>
-                <br/>
-                <button>Add To Collection</button>
+                <button>➕</button>
                 <br/>
             </form>
         </div>
