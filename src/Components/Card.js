@@ -17,6 +17,7 @@ class Card extends React.Component {
         event.preventDefault()
         this.props.addToCollection(this.state)
         console.log(this.props)
+        event.target.reset()
     }
 
     render() {

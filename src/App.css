@@ -28,24 +28,25 @@ body {
 .main-header {
   grid-area: header;
   font-family: 'Beleren Bold', serif;
-  color: green;
+  color:  rgb(161, 192, 21);
   font-size: 30px;
-  border: 2px solid green
+
   
 }
 
 .nav-bar {
   grid-area: nav;
-  border: 2px solid pink
+  background-color: #003A70;
+  
 }
 
 .search-form {
   grid-area: search;
+  background-color: #003A70;
 }
 
 .cards-area {
   grid-area: main;
-  border: 2px solid purple;
   text-align: center;
   color: #003A70;  
   display: flex;
@@ -62,7 +63,7 @@ body {
   display: inline-grid;
   margin: 1rem 2rem;
   background-color: rgb(255,255,255, 0.3);
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 10px;
   padding-bottom: 10px;
   object-fit: contain;
@@ -76,6 +77,7 @@ body {
 
 #tag-search-bar {
   float: left;
+
 }
 
 .user-card-p {
