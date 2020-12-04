@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar'
 // import Signup from './Components/Signup'
 import UserContainer from './Containers/UserContainer';
 import CardSearchForm from './Components/CardSearchForm'
+import SearchByTag from './Components/SearchByTag';
 
 class App extends React.Component {
 

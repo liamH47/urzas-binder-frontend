@@ -4,6 +4,8 @@ body {
   background: url("https://wallpapercave.com/wp/nkHAKMR.jpg");
   background-attachment: fixed;
   background-size: cover;
+  font-family: 'Beleren Bold', serif;
+  /* font-family: "Beleren Bold"; */
   
 }
 
@@ -12,9 +14,9 @@ body {
   background-color: cornsilk; */
   display: grid;
   grid-template-areas:
-  "header header header header"
-  "nav search search search"
-  "main main main main"
+  "header header"
+  "nav search"
+  "main main"
 ; 
 }
 
@@ -25,6 +27,9 @@ body {
 
 .main-header {
   grid-area: header;
+  font-family: 'Beleren Bold', serif;
+  color: green;
+  font-size: 30px;
   border: 2px solid green
   
 }
@@ -69,14 +74,17 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.search-bar {
-  justify-content: center;
+#tag-search-bar {
+  float: left;
 }
 
 .user-card-p {
   margin: 2px;
 }
 
+.input-text{
+  float: left;
+}
 .del-btn {
   width: auto;
   height: auto;
@@ -89,7 +97,22 @@ body {
   top: -1px;
 }
 
-#all-cards-btn {
+.tag-place {
+  width: auto;
+  height: 22px;
+  position: relative;
+  top: -1px;
+}
 
 
+@font-face {
+  font-family: "Beleren Bold";
+  src: local("Beleren Bold"), url("./fonts/Beleren2016-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+.nav-btn {
+  float: left;
+  margin-left: 10px;
 }
