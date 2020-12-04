@@ -86,4 +86,3 @@ export default withRouter(UserContainer)
 //have a column on the left side of both /cards and /user/id that has a searchform for cards
 //expand current search functionality, potentially with dropdown menu filters for card attributes such as color, type, set, maybe tags?
 //different sorting orders such as by mana cost 
-

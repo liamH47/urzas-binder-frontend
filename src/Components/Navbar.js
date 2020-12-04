@@ -6,11 +6,11 @@ function Navbar() {
         <div className="nav-bar">
 
             <NavLink to="/cards">
-                <button id="all-cards-btn">All Cards</button>
+                <button class="nav-btn">All Cards</button>
             </NavLink>
 
-            <NavLink to="/users">
-                <button>My Binder</button>
+            <NavLink  to="/users">
+                <button class="nav-btn">My Binder</button>
             </NavLink>
         </div>
     )
