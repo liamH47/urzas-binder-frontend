@@ -8,23 +8,34 @@ body {
 }
 
 .wrapper {
-  background: url("https://wallpapercave.com/wp/nkHAKMR.jpg");
-  background-color: cornsilk;
+  /* background: url("https://wallpapercave.com/wp/nkHAKMR.jpg");
+  background-color: cornsilk; */
   display: grid;
   grid-template-areas:
-  "nav header"
-  "main main"
+  "header header header header"
+  "nav search search search"
+  "main main main main"
 ; 
+}
+
+#header-img {
+  height: 100px;
+  width: 100px;
 }
 
 .main-header {
   grid-area: header;
   border: 2px solid green
+  
 }
 
 .nav-bar {
   grid-area: nav;
   border: 2px solid pink
+}
+
+.search-form {
+  grid-area: search;
 }
 
 .cards-area {
@@ -78,14 +89,7 @@ body {
   top: -1px;
 }
 
-#tag-search-bar {
-  position: relative;
-  top: -14px;
-  left: 121px;
-}
+#all-cards-btn {
 
-#name-search-bar {
-  position: relative;
-  top: -14px;
-  left: 265px;
+
 }

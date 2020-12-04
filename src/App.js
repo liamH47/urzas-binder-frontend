@@ -7,13 +7,15 @@ import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 // import Signup from './Components/Signup'
 import UserContainer from './Containers/UserContainer';
+import CardSearchForm from './Components/CardSearchForm'
 
 class App extends React.Component {
 
     state = {
       currentUserId: 32,
       userCards: [],
-      cardsApi: []
+      cardsApi: [],
+      searchValue: ""
     }
 
     componentDidMount = () => {
@@ -22,6 +24,9 @@ class App extends React.Component {
       .then(data => this.setState({ cardsApi: data }))
     }
 
+    changeHandler = (event) => {
+      this.setState({searchValue: event.target.value })
+    }
     
 
     addToCollection = (userCardObj) => {
@@ -54,9 +59,10 @@ class App extends React.Component {
         <div className="wrapper">
           <Header />
           <Navbar /> 
+          <CardSearchForm changeHandler={this.changeHandler} searchValue={this.state.searchValue}/>
           <Switch>
           <Route path="/users" render={() => <UserContainer currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
-          <Route path="/cards" render={() => <CardContainer cardsApi={this.state.cardsApi} currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
+          <Route path="/cards" render={() => <CardContainer searchValue={this.state.searchValue} cardsApi={this.state.cardsApi} currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
           {/* <Route path="/home" render={() => <Signup />} /> */}
           </Switch>
         </div>
