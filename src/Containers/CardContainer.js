@@ -30,7 +30,3 @@ class CardContainer extends React.Component {
 }
 
 export default withRouter(CardContainer);
-
-//get user props from app in here
-//maybe take beyonce css to create a new column for added cards
-//

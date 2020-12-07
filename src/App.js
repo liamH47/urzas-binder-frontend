@@ -31,7 +31,6 @@ class App extends React.Component {
     
 
     addToCollection = (userCardObj) => {
-      // console.log("clicked")
       fetch("http://localhost:3000/api/v1/user_cards", {
         method: 'POST',
         headers: {
@@ -44,15 +43,6 @@ class App extends React.Component {
       .then(newUserCard => this.setState({ userCards: [...this.state.userCards, newUserCard] }))
     }
 
-    // componentDidMount() {
-    //   Promise.all([fetch("http://localhost:3000/api/v1/users/32"), fetch("http://localhost:3000/api/v1/cards")])
-    //   .then(([r1, r2]) => {
-    //     return Promise.all([r1.json(), r2.json()])
-    //   })
-    //   .then(([r1, r2]) => {
-    //     this.setState({ cardsApi: r2})
-    //   })
-    // }
 
 
     render() { 
@@ -64,7 +54,6 @@ class App extends React.Component {
           <Switch>
           <Route path="/users" render={() => <UserContainer currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
           <Route path="/cards" render={() => <CardContainer searchValue={this.state.searchValue} cardsApi={this.state.cardsApi} currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
-          {/* <Route path="/home" render={() => <Signup />} /> */}
           </Switch>
         </div>
         

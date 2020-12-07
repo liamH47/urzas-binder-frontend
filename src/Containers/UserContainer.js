@@ -52,7 +52,7 @@ class UserContainer extends React.Component {
         fetch("http://localhost:3000/api/v1/user_cards")
         .then(resp => resp.json())
         .then(data => this.setState({ userCardsState: data}))
-        // console.log("plswork")
+
     }
 
     searchHandler = (event) => {
@@ -77,12 +77,4 @@ class UserContainer extends React.Component {
 }
 
 export default withRouter(UserContainer)
-//how can I make the usercards group by tag?
-//new component that filtered based off of words in tag
-//is the way to add multiple tags to turn the tags attribute into an array?
 
-
-//perhaps to the right of each tag a small button to remove that tag? this would only be useful if we can get multiple tags on a card
-//have a column on the left side of both /cards and /user/id that has a searchform for cards
-//expand current search functionality, potentially with dropdown menu filters for card attributes such as color, type, set, maybe tags?
-//different sorting orders such as by mana cost 
