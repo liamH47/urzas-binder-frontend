@@ -16,7 +16,8 @@ class App extends React.Component {
       currentUserId: 32,
       userCards: [],
       cardsApi: [],
-      searchValue: ""
+      searchValue: "",
+      tagSearch: ""
     }
 
     componentDidMount = () => {
@@ -29,6 +30,9 @@ class App extends React.Component {
       this.setState({searchValue: event.target.value })
     }
     
+    tagSearchHandler = (event) => {
+      this.setState({tagSearch: event.target.value })
+    }
 
     addToCollection = (userCardObj) => {
       fetch("http://localhost:3000/api/v1/user_cards", {
@@ -52,7 +56,7 @@ class App extends React.Component {
           <Navbar /> 
           <CardSearchForm changeHandler={this.changeHandler} searchValue={this.state.searchValue}/>
           <Switch>
-          <Route path="/users" render={() => <UserContainer currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
+          <Route path="/users" render={() => <UserContainer tagSearch={this.state.tagSearch} changeHandler={this.tagSearchHandler} currentUser={this.state.currentUserId} userCards={this.state.userCards} />} />
           <Route path="/cards" render={() => <CardContainer searchValue={this.state.searchValue} cardsApi={this.state.cardsApi} currentUser={this.state.currentUserId} addToCollection={this.addToCollection}/>} />
           </Switch>
         </div>

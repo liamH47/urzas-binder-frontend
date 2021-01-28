@@ -66,11 +66,15 @@ class UserContainer extends React.Component {
 
     render(){
         return(
+            <>
+            <>
+                <SearchByTag id="tag-search-bar" changeHandler={this.props.changeHandler}  searchValue={this.props.tagSearch} />
+            </>
             <div className="cards-area">
-                <SearchByTag id="tag-search-bar" changeHandler={this.searchHandler}  searchValue={this.state.searchValue} />
                 <br/>
                 {this.renderUserCards()}
             </div>
+            </>
         )
     }
     
